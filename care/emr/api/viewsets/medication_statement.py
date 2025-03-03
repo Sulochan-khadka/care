@@ -27,10 +27,6 @@ class MedicationStatementFilter(filters.FilterSet):
     status = StatusFilter()
     name = filters.CharFilter(field_name="medication__display", lookup_expr="icontains")
 
-    class Meta:
-        model = MedicationStatement
-        fields = ["encounter", "status", "name"]
-
 
 class MedicationStatementViewSet(
     EncounterBasedAuthorizationBase, EMRQuestionnaireResponseMixin, EMRModelViewSet
